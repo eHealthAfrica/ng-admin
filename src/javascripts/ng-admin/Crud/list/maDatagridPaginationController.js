@@ -5,14 +5,15 @@ export default class DatagridPaginationController {
         this.$scope = $scope;
         var perPage = parseInt(this.$scope.perPage, 10) || 1,
             totalItems = parseInt(this.$scope.totalItems, 10),
-            page = Math.max(parseInt(this.$scope.page, 10), 1);
+            page = Math.max(parseInt(this.$scope.page, 10), 1),
+            alwaysDisplay = this.$scope.alwaysDisplay || false;
 
         this.nbPages = Math.ceil(totalItems / perPage) || 1;
         this.page = Math.min(this.nbPages, page);
         this.offsetEnd = Math.min(this.page * perPage, totalItems);
         this.offsetBegin = Math.min((this.page - 1) * perPage + 1, this.offsetEnd);
         this.totalItems = totalItems;
-        this.displayPagination = perPage < totalItems;
+        this.displayPagination = alwaysDisplay || (perPage < totalItems);
 
         $scope.$on('$destroy', this.destroy.bind(this));
     }
