@@ -1,5 +1,6 @@
 .sass-cache
 .tmp
+.idaa/
 build/
 dist
 examples/blog/assets
