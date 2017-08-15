@@ -5,6 +5,7 @@ export default function maDatagridPagination() {
     return {
         restrict: 'E',
         scope: {
+            alwaysDisplay: '=',
             page: '@',
             perPage: '@',
             totalItems: '@',

@@ -2,6 +2,7 @@ import Entry from 'admin-config/lib/Entry';
 
 export default class ListController {
     constructor($scope, $stateParams, $location, $anchorScroll, ReadQueries, progression, view, dataStore, totalItems) {
+
         this.$scope = $scope;
         this.$stateParams = $stateParams;
         this.$location = $location;
@@ -17,6 +18,7 @@ export default class ListController {
         this.listActions = view.listActions();
         this.totalItems = totalItems;
         this.page = $stateParams.page || 1;
+        this.alwaysDisplayPagination =  view.alwaysDisplayPagination || false;
         this.infinitePagination = this.view.infinitePagination();
         this.entryCssClasses = this.view.getEntryCssClasses.bind(this.view);
         this.nextPageCallback = this.nextPage.bind(this);
