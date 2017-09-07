@@ -110,7 +110,6 @@ export default class FormController {
             ))
             .then(customHandlerReturnValue => {
                 if (customHandlerReturnValue === false) return;
-                console.log("I fell in here for no reason :( ")
                 $state.go(previousState.name, previousState.params)
                     .then(() => progression.done())
                     .then(() => $translate('EDITION_SUCCESS'))
