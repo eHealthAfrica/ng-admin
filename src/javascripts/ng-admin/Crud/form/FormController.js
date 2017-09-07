@@ -71,7 +71,7 @@ export default class FormController {
             .then(() => $translate('CREATION_SUCCESS'))
             .then(text => notification.log(text, { addnCls: 'humane-flatty-success' }))
             .catch(error => {
-                const errorMessage = this.config.getErrorMessageFor(this.view, error) || 'ERROR_MESSAGE';
+                const errorMessage = error.data.message || this.config.getErrorMessageFor(this.view, error) || 'ERROR_MESSAGE';
                 const customHandlerReturnValue = view.onSubmitError() && this.$injector.invoke(
                     view.onSubmitError(),
                     view,
@@ -110,6 +110,7 @@ export default class FormController {
             ))
             .then(customHandlerReturnValue => {
                 if (customHandlerReturnValue === false) return;
+                console.log("I fell in here for no reason :( ")
                 $state.go(previousState.name, previousState.params)
                     .then(() => progression.done())
                     .then(() => $translate('EDITION_SUCCESS'))

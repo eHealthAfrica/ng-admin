@@ -18,7 +18,12 @@ export default class RestWrapper {
             .oneUrl(entityName, url)
             .get()
             .then(function (response) {
+              if (response.status >= 400) {
+                throw response;
+              }
+              else{
                 return response.data;
+              }
             });
     }
 
@@ -42,7 +47,12 @@ export default class RestWrapper {
             operation = method ? resource.customOperation(method, null, {}, {}, rawEntity) : resource.customPOST(rawEntity);
 
         return operation.then(function (response) {
+          if (response.status >= 400) {
+            throw response;
+          }
+          else{
             return response.data;
+          }
         });
     }
 
@@ -51,7 +61,12 @@ export default class RestWrapper {
             operation = method ? resource.customOperation(method, null, {}, {}, rawEntity) : resource.customPUT(rawEntity);
 
         return operation.then(function (response) {
+          if (response.status >= 400) {
+              throw response;
+          }
+          else{
             return response.data;
+          }
         });
     }
 
