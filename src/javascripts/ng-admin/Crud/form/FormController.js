@@ -116,7 +116,7 @@ export default class FormController {
                     .then(text => notification.log(text, { addnCls: 'humane-flatty-success' }));
             })
             .catch(error => {
-                const errorMessage = this.config.getErrorMessageFor(this.view, error) || 'ERROR_MESSAGE';
+                const errorMessage = error.data.message || this.config.getErrorMessageFor(this.view, error) || 'ERROR_MESSAGE';
                 const customHandlerReturnValue = view.onSubmitError() && this.$injector.invoke(
                     view.onSubmitError(),
                     view,
