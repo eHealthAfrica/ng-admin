@@ -9,9 +9,9 @@
     "url": "git://github.com/marmelab/ng-admin.git"
   },
   "files": [
-      "*.md",
-      "build/",
-      "lib/"
+    "*.md",
+    "build/",
+    "lib/"
   ],
   "dependencies": {
     "angular": "~1.4.8",
@@ -84,7 +84,7 @@
   },
   "engines": {
     "node": ">=4.2.0"
-  }, 
+  },
   "scripts": {
     "test": "make test"
   }
